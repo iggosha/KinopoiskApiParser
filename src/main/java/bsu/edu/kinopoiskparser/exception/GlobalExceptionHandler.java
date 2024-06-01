@@ -1,7 +1,7 @@
 package bsu.edu.kinopoiskparser.exception;
 
 import bsu.edu.kinopoiskparser.exception.custom.ExternalApiException;
-import bsu.edu.kinopoiskparser.exception.custom.MovieNotFoundInApiException;
+import bsu.edu.kinopoiskparser.exception.custom.MovieNotFoundInExternalApiException;
 import bsu.edu.kinopoiskparser.exception.custom.MovieNotFoundInDbException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,8 +13,8 @@ import java.util.Date;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(MovieNotFoundInApiException.class)
-    public ResponseEntity<?> handleMovieNotFoundInApiException(MovieNotFoundInApiException e) {
+    @ExceptionHandler(MovieNotFoundInExternalApiException.class)
+    public ResponseEntity<?> handleMovieNotFoundInApiException(MovieNotFoundInExternalApiException e) {
         ExceptionDetails exceptionDetails = new ExceptionDetails(new Date(), e.getMessage());
         return new ResponseEntity<>(exceptionDetails, HttpStatus.NOT_FOUND);
     }

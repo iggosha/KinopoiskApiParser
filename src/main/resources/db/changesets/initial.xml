@@ -4,9 +4,9 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
 
 
-    <changeSet id="31-05-204" author="Igor Golovkov">
+    <changeSet id="create-movie-db" author="Igor Golovkov" created="01-05-2024">
         <createTable tableName="movies">
-            <column name="id" type="BIGINT" autoIncrement="true">
+            <column name="id" type="BIGINT">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="name" type="VARCHAR(255)"/>
@@ -23,5 +23,10 @@
             <column name="tickets_on_sale" type="BOOLEAN"/>
         </createTable>
     </changeSet>
+
+    <changeSet id="new_id_without_autoincrement" author="Igor Golovkov">
+        <sql>DROP SEQUENCE IF EXISTS movies_id_seq;</sql>
+    </changeSet>
+
 
 </databaseChangeLog>
