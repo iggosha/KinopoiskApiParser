@@ -14,13 +14,20 @@ import java.util.Optional;
 public interface KinopoiskApiClient {
 
     @GetMapping("/v1.4/movie/{id}")
-    Optional<Movie> findMovieById(@PathVariable("id") Long id);
+    Optional<Movie> findById(@PathVariable("id") Long id);
 
     @GetMapping("/v1.4/movie")
-    ApiMoviePage getByPage(
+    ApiMoviePage findByPage(
             @RequestParam(value = "page", required = false, defaultValue = "1") int page,
             @RequestParam(value = "limit", required = false, defaultValue = "10") int limit,
             @RequestParam(value = "selectFields") List<String> selectFields
+    );
+
+    @GetMapping("/v1.4/movie/search")
+    ApiMoviePage findByPageByName(
+            @RequestParam(value = "page", required = false, defaultValue = "1") int page,
+            @RequestParam(value = "limit", required = false, defaultValue = "10") int limit,
+            @RequestParam(value = "query") String name
     );
 }
 
