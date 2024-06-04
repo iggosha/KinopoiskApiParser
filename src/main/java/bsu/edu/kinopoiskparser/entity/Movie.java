@@ -3,6 +3,7 @@ package bsu.edu.kinopoiskparser.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Entity
 @Data
@@ -10,6 +11,7 @@ import lombok.Data;
 public class Movie {
 
     @Id
+    @EqualsAndHashCode.Exclude
     private Long id;
 
     private String name;

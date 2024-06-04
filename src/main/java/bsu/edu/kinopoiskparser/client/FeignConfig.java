@@ -8,14 +8,15 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class FeignConfig {
 
-    @Value("${api-key}")
+    public static final String X_API_KEY = "X-API-KEY";
+    @Value("${kinopoisk-api.key}")
     private String apiKey;
 
     @Bean
     public RequestInterceptor requestInterceptor() {
         return template -> {
             template.header("accept", "application/json");
-            template.header("X-API-KEY", apiKey);
+            template.header(X_API_KEY, apiKey);
         };
     }
 }

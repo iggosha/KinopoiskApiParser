@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 import java.util.Optional;
 
-@FeignClient(name = "KinopoiskApiClient", url = "https://api.kinopoisk.dev", configuration = FeignConfig.class)
-public interface KinopoiskApiClient {
+@FeignClient(name = "KinopoiskApiClientRouter", url = "${kinopoisk-api.base-url}", configuration = FeignConfig.class)
+public interface KinopoiskApiClientRouter {
 
     @GetMapping("/v1.4/movie/{id}")
     Optional<Movie> findById(@PathVariable("id") Long id);

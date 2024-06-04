@@ -15,4 +15,12 @@ spring:
     name: KinopoiskParser
   jpa:
     show-sql: true
-api-key: YBYZT8C-893MX4Y-MNWKER5-A3MS8X5
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+kinopoisk-api:
+  key: YBYZT8C-893MX4Y-MNWKER5-A3MS8X5
+  base-url: https://api.kinopoisk.dev
+application:
+  base-url: /api/v1/movies
+
